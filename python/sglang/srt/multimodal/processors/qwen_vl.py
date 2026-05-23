@@ -437,6 +437,7 @@ class QwenVLImageProcessor(SGLangBaseProcessor):
 
     @staticmethod
     def _as_grid_batch(value):
+        """normalize grid value, e.g. [t, h, w] -> [1, 3]"""
         if value is None:
             return None
         if isinstance(value, torch.Tensor):
@@ -540,7 +541,8 @@ class QwenVLImageProcessor(SGLangBaseProcessor):
         return mrope_positions, mrope_position_delta
 
     @classmethod
-    def _concat_mm_item_grid(cls, mm_items, key, modality):
+    def _concat_mm_item_grid(cls, mm_items: list[MultimodalDataItem], key, modality):
+        """collect and concat xxx_grid_thw from mm_items"""
         grids = []
         for item in mm_items:
             if not item.is_modality(modality):
@@ -558,6 +560,7 @@ class QwenVLImageProcessor(SGLangBaseProcessor):
     def _get_grid_from_output_or_items(
         cls, ret, mm_items, key, modality, input_data=None
     ):
+        """get xxx_grid_thw from processor output, mm_items or """
         grid = cls._get_processor_output_value(ret, key)
         if grid is None:
             grid = cls._concat_mm_item_grid(mm_items, key, modality)
