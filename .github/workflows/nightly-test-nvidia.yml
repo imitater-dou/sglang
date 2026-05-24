@@ -678,10 +678,12 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           PYTHONUNBUFFERED: "1"
+          SGLANG_DIFFUSION_VAE_CHANNELS_LAST_3D: "true"
         timeout-minutes: 210
         run: |
           python3 -u scripts/ci/utils/diffusion/run_comparison.py \
-            --output comparison-results.json
+            --output comparison-results.json \
+            --frameworks sglang
 
       - name: Generate dashboard
         if: always()
@@ -697,7 +699,7 @@ jobs:
             --step-summary
 
       - name: Publish to sglang-ci-data
-        if: always()
+        if: ${{ false }}
         env:
           GH_PAT_FOR_NIGHTLY_CI_DATA: ${{ secrets.GH_PAT_FOR_NIGHTLY_CI_DATA }}
         run: |
