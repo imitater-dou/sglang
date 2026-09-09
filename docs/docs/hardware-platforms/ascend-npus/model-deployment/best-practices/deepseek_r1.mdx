@@ -479,7 +479,7 @@ do
         --enable-dp-attention \
         --deepep-mode low_latency \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --cuda-graph-bs-decode 2 4 6 \
         --watchdog-timeout 9000 \
         --context-length 8192 \
@@ -686,7 +686,7 @@ do
         --moe-a2a-backend ascend_fuseep \
         --enable-dp-attention \
         --deepep-mode low_latency \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --cuda-graph-bs-decode 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 \
         --watchdog-timeout 9000 \
         --context-length 8192 \
@@ -889,7 +889,7 @@ do
         --enable-dp-attention \
         --deepep-mode low_latency \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --cuda-graph-bs-decode 2 4 6 \
         --watchdog-timeout 9000 \
         --context-length 8192 \
@@ -1092,7 +1092,7 @@ do
         --enable-dp-attention \
         --deepep-mode low_latency \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --cuda-graph-bs-decode 2 4 6 \
         --watchdog-timeout 9000 \
         --context-length 8192 \
@@ -1294,7 +1294,7 @@ do
         --enable-dp-attention \
         --deepep-mode low_latency \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --cuda-graph-bs-decode 2 4 6 \
         --watchdog-timeout 9000 \
         --speculative-algorithm NEXTN \

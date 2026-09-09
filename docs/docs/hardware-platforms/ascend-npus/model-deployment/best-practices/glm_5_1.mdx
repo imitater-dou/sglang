@@ -258,12 +258,12 @@ do
         --disable-cuda-graph \
         --dtype bfloat16 \
         --speculative-draft-model-quantization unquant \
-        --enable-nsa-prefill-context-parallel \
-        --nsa-prefill-cp-mode in-seq-split \
+        --enable-prefill-cp \
+        --cp-strategy zigzag \
         --attn-cp-size 4 \
         --disable-radix-cache \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --pp-size 8 \
         --trust-remote-code
         break
@@ -463,7 +463,7 @@ do
         --cp-strategy zigzag \
         --attn-cp-size 8 \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --reasoning-parser glm45 \
         --tool-call-parser glm47 \
         --trust-remote-code
@@ -670,12 +670,12 @@ do
         --disable-cuda-graph \
         --dtype bfloat16 \
         --speculative-draft-model-quantization unquant \
-        --enable-nsa-prefill-context-parallel \
-        --nsa-prefill-cp-mode in-seq-split \
+        --enable-prefill-cp \
+        --cp-strategy zigzag \
         --attn-cp-size 4 \
         --disable-radix-cache \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --pp-size 8
         break
     fi
@@ -871,11 +871,11 @@ do
         --disable-cuda-graph \
         --dtype bfloat16 \
         --speculative-draft-model-quantization unquant \
-        --enable-nsa-prefill-context-parallel \
-        --nsa-prefill-cp-mode in-seq-split \
+        --enable-prefill-cp \
+        --cp-strategy zigzag \
         --attn-cp-size 4 \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --pp-size 8 \
         --reasoning-parser glm45 \
         --tool-call-parser glm47 \
@@ -1073,7 +1073,7 @@ do
         --cp-strategy zigzag \
         --attn-cp-size 8 \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --reasoning-parser glm45 \
         --tool-call-parser glm47 \
         --trust-remote-code
@@ -1281,7 +1281,7 @@ do
         --cp-strategy zigzag \
         --attn-cp-size 4 \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --pp-size 8 \
         --reasoning-parser glm45 \
         --tool-call-parser glm47 \
@@ -1490,7 +1490,7 @@ do
         --cp-strategy zigzag \
         --attn-cp-size 4 \
         --enable-dp-lm-head \
-        --moe-dense-tp 1 \
+        --moe-dense-tp-size 1 \
         --pp-size 4 \
         --reasoning-parser glm45 \
         --tool-call-parser glm47 \

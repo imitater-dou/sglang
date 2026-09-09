@@ -386,13 +386,13 @@ do
         --disable-shared-experts-fusion --disable-cuda-graph --dtype bfloat16 \
         --dp-size 4 --enable-dp-attention \
         --load-balance-method round_robin \
-        --enable-dp-lm-head --moe-dense-tp 1 \
+        --enable-dp-lm-head --moe-dense-tp-size 1 \
         --speculative-draft-model-quantization unquant \
         --speculative-algorithm NEXTN --speculative-num-steps 1 --speculative-eagle-topk 1 --speculative-num-draft-tokens 2
 
         # cp
-        #--enable-nsa-prefill-context-parallel \
-        #--nsa-prefill-cp-mode in-seq-split \
+        #--enable-prefill-cp \
+        #--cp-strategy zigzag \
         #--attn-cp-size 4 \
         NODE_RANK=$i
         break
