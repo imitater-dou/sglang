@@ -15,7 +15,7 @@ Then, the model can be loaded with
 
 llm = Engine(
     model_path="[protocol]://[host]:[port]/[model_name]",
-    tensor_parallel_size=8,
+    tp_size=8,
 )
 """
 
